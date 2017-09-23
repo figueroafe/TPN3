@@ -1,13 +1,13 @@
 package juego.rpg;
 
-public class Personaje {
+public class Unidad {
 	private double danio;
 	private double salud;
-	private double attack;
+	private double ataque;
 	private double distancia;
 	private double pocion[];
 
-	public Personaje(double[] pocion) {
+	public Unidad(double[] pocion) {
 		super();
 		this.pocion = pocion;
 	}
@@ -24,11 +24,11 @@ public class Personaje {
 		return danio;
 	}
 
-	public Personaje(double danio, double salud, double attack, double distancia) {
+	public Unidad(double danio, double salud, double attack, double distancia) {
 		super();
 		this.danio = danio;
 		this.salud = salud;
-		this.attack = attack;
+		this.ataque = attack;
 		this.distancia = distancia;
 	}
 
@@ -45,11 +45,11 @@ public class Personaje {
 	}
 
 	public double getAttack() {
-		return attack;
+		return ataque;
 	}
 
 	public void setAttack(double attack) {
-		this.attack = attack;
+		this.ataque = attack;
 	}
 
 	public double getDistancia() {
