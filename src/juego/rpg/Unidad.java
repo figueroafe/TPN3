@@ -1,7 +1,7 @@
 package juego.rpg;
 
 public class Unidad {
-	private double danio;
+	private double dmg;
 	private double salud;
 	private double ataque;
 	private double distancia;
@@ -21,19 +21,19 @@ public class Unidad {
 	}
 
 	public double getDanio() {
-		return danio;
+		return dmg;
 	}
 
 	public Unidad(double danio, double salud, double attack, double distancia) {
 		super();
-		this.danio = danio;
+		this.dmg = danio;
 		this.salud = salud;
 		this.ataque = attack;
 		this.distancia = distancia;
 	}
 
 	public void setDanio(double danio) {
-		this.danio = danio;
+		this.dmg = danio;
 	}
 
 	public double getSalud() {
