@@ -44,7 +44,9 @@ public class Arquero extends UnidadTemplate {
 	 * Metodo que informa el estado completo del arquero
 	 * 
 	 */
-	public void estadoArquero() {
+	@Override
+	public void estadoUnidad() {
+		System.out.println(" --- Estado Arquero ---");
 		System.out.println("Flechas   --> " + this.getFlechas());
 		System.out.println("Salud     --> " + this.getSalud());
 		System.out.println("Defensa   --> " + this.getDefensa());
@@ -77,6 +79,8 @@ public class Arquero extends UnidadTemplate {
 		}
 		if(this.flechas <=0 )
 			System.out.println("Ya no posee flechas para atacar");
+		if (distanciaDeAtaque(enemigo)==false)
+			System.out.println("No esta en rango para atacar.");
 		return false;
 	}
 

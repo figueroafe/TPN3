@@ -53,7 +53,9 @@ public class Caballero extends UnidadTemplate implements Pocion {
 	/**
 	 * Metodo que muestra el estado completo del caballero
 	 */
-	public void estadoCaballero() {
+	@Override
+	public void estadoUnidad() {
+		System.out.println(" --- Estado Caballero ---");
 		System.out.println("Salud             --> " + this.getSalud());
 		System.out.println("Defensa           --> " + this.getDefensa());
 		System.out.println("Ataque            --> " + this.getAtaque());
@@ -99,6 +101,9 @@ public class Caballero extends UnidadTemplate implements Pocion {
 			}
 			return true;
 		}
+		if (distanciaDeAtaque(enemigo)==false)
+			System.out.println("No esta en rango para atacar.");
+
 		return false;
 	}
 

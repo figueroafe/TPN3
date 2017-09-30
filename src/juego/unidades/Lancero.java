@@ -36,7 +36,9 @@ public class Lancero extends UnidadTemplate{
 	/**
 	 * Metodo que muestra el estado completo del Lancero
 	 */
-	public void estadoLancero() {
+	@Override
+	public void estadoUnidad() {
+		System.out.println(" --- Estado Lancero ---");
 		System.out.println("Salud     --> " + this.getSalud());
 		System.out.println("Defensa   --> " + this.getDefensa());
 		System.out.println("Ataque    --> " + this.getAtaque());
@@ -63,6 +65,8 @@ public class Lancero extends UnidadTemplate{
 			System.out.println("El Lancero ataco al "+enemigo.getClass().toString());
 			return true;
 		}
+		if (distanciaDeAtaque(enemigo)==false)
+			System.out.println("No esta en rango para atacar.");
 		return false;
 	}
 

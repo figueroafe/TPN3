@@ -13,7 +13,7 @@ public class Escudo extends ItemDecorator {
 
 	@Override
 	public double getDefensa() {
-		return this.getItemInterfaz().getDefensa() * 1.60;
+		return this.getItemInterfaz().getDefensa() + 0.60;
 	}
 
 	@Override

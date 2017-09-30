@@ -37,7 +37,14 @@ public abstract class UnidadTemplate implements ItemInterfaz{
 	 * @return
 	 */
 	public abstract boolean atacar(UnidadTemplate enemigo);
-
+	
+	/**
+	 * Metodo que muestra el estado completo de la unidad
+	 * 
+	 * @param enemigo
+	 * @return
+	 */
+	public abstract void estadoUnidad();
 	/**
 	 * Metodo que pregunta si esta en distancia correcta para atacar
 	 * 

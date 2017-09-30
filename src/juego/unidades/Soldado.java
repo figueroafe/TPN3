@@ -45,7 +45,9 @@ public class Soldado extends UnidadTemplate implements Pocion {
 
 	}
 
-	public void estadoSoldado() {
+	@Override
+	public void estadoUnidad() {
+		System.out.println(" --- Estado Soldado ---");
 		System.out.println("Energia   --> " + this.getEnergia());
 		System.out.println("Salud     --> " + this.getSalud());
 		System.out.println("Defensa   --> " + this.getDefensa());
@@ -76,16 +78,19 @@ public class Soldado extends UnidadTemplate implements Pocion {
 	 */
 	@Override
 	public boolean atacar(UnidadTemplate enemigo) {
-		if (this.energia >= ENERGIA_SOLDADO && distanciaDeAtaque(enemigo)) {
+		if (this.energia > 0 && distanciaDeAtaque(enemigo)) {
 			this.energia -= ATAQUE_SOLDADO;
 			enemigo.setSalud((int) ((enemigo.getSalud() - this.getAtaque()) + enemigo
 					.getDefensa()));
 			System.out.println("El Soldado ataco al "
-					+ enemigo.getClass().toString());
+					+ enemigo.getClass().getName());
 			return true;
 		}
-		if (this.energia <= ENERGIA_SOLDADO)
+		if (this.energia <= 0)
 			System.out.println("Ya no posee energia suficiente para atacar.");
+		if (distanciaDeAtaque(enemigo)==false)
+			System.out.println("No esta en rango para atacar.");
+
 		return false;
 	}
 
