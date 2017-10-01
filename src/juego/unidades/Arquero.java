@@ -104,7 +104,6 @@ public class Arquero extends UnidadTemplate {
 
 	@Override
 	public double getEnergia() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
