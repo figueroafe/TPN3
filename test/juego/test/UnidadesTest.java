@@ -94,17 +94,22 @@ public class UnidadesTest {
 		System.out.println("Soldado 1 sin energia:"+ soldado1.getEnergia());
 		System.out.println("Soldado 2 con saludo luego del ataque:"
 							+ soldado2.getEnergia());
-		System.out.println("Ataques del soldado uno 1 existos:"+ cantAtaque);
+		System.out.println("Ataques del soldado uno existos:"+ cantAtaque);
 	}
 	
 	@Test 
-	public void testDeAtaqueEntreArqueros() {
-		int flechas = 0;
-		while(((Arquero) arquero1).getFlechas() > 0) {
-			arquero1.atacar(arquero2);
-			flechas++;
-		}
+	/*public void testDeAtaqueEntreArqueros() {
+		arquero1.atacar(arquero2);
 		
-		Assert.assertEquals(0, arquero1.getEnergia(), 0);
+		Assert.assertEquals(45,  arquero2.getSalud(), 0);
+		
+	}*/
+	public void testDeAtaqueEntreCaballeros() {
+		caballero1.atacar(caballero2);
+		
+		Assert.assertEquals(150, caballero2.getSalud(), 0);
+		
 	}
+	
+	@Test
 }
