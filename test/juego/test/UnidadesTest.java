@@ -30,8 +30,8 @@ public class UnidadesTest {
 
 	@Before
 	public void setUp() {
-		distancia = new Distancia(2, 1);
-		distancia2 = new Distancia(1, 1);
+		distancia = new Distancia(1, 0);
+		distancia2 = new Distancia(2, 3);
 
 		soldado1 = new Soldado(distancia);
 		soldado2 = new Soldado(distancia2);
@@ -69,47 +69,109 @@ public class UnidadesTest {
 		Assert.assertEquals(25, lancero1.getAtaque(), 0);
 
 	}
-	
+
 	@Test
 	public void testDeEstadoInicialCaballero() {
 		Assert.assertEquals(200, caballero1.getSalud(), 0);
 		Assert.assertEquals(50, caballero1.getAtaque(), 0);
 	}
-	
+
 	/**
 	 * Testeo de los ataques entre las mismas unidades
 	 */
-	
+
 	@Test
 	public void testDeAtaqueEntreSoldados() {
 		int cantAtaque = 0;
-		while(soldado1.getEnergia() != 0) {
+		while (soldado1.getEnergia() != 0) {
 			soldado1.atacar(soldado2);
 			cantAtaque++;
 		}
-			
+
 		Assert.assertEquals(0, soldado1.getEnergia(), 0);
 		Assert.assertEquals(100, soldado2.getSalud(), 0);
 		Assert.assertEquals(10, cantAtaque);
-		System.out.println("Soldado 1 sin energia:"+ soldado1.getEnergia());
-		System.out.println("Soldado 2 con saludo luego del ataque:"
-							+ soldado2.getEnergia());
-		System.out.println("Ataques del soldado uno existos:"+ cantAtaque);
+		System.out.println("Soldado 1 sin energia:" + soldado1.getEnergia());
+		System.out.println("Soldado 2 con saludo luego del ataque:" + soldado2.getEnergia());
+		System.out.println("Ataques del soldado uno existos:" + cantAtaque);
 	}
-	
-	@Test 
-	/*public void testDeAtaqueEntreArqueros() {
-		arquero1.atacar(arquero2);
-		
-		Assert.assertEquals(45,  arquero2.getSalud(), 0);
-		
-	}*/
+
+	// @Test
+	// public void testDeAtaqueEntreArqueros() {
+	// arquero1.atacar(arquero2);
+	// Assert.assertEquals(45, arquero2.getSalud(), 0);
+	// }
+
+	@Test
 	public void testDeAtaqueEntreCaballeros() {
 		caballero1.atacar(caballero2);
-		
-		Assert.assertEquals(150, caballero2.getSalud(), 0);
-		
+		caballero1.atacar(caballero2);
+		caballero1.atacar(caballero2);
+
+		Assert.assertEquals(50, caballero2.getSalud(), 0);
+		System.out.println("Caballero 2 con salud restante: " + caballero2.getSalud());
+	}
+
+	@Test
+	public void testDeAtaqueEntreLanceros() {
+		lancero1.atacar(lancero2);
+
+		Assert.assertEquals(125, lancero2.getSalud(), 0);
+		System.out.println("Lancero 2 con salud restante: " + lancero2.getSalud());
+
+	}
+
+	/**
+	 * Test de ataque entre distintas unidades
+	 */
+	@Test
+	public void testDeAtaqueSoldadoArquero() {
+		soldado1.atacar(arquero1);
+
+		Assert.assertEquals(40, arquero1.getSalud(), 0);
+		System.out.println("Arquero 1 con salud restante: " + arquero1.getSalud());
+
+	}
+
+	@Test
+	public void testDeAtaqueSoldadoLancero() {
+		soldado1.atacar(lancero1);
+
+		Assert.assertEquals(140, lancero1.getSalud(), 0);
+		System.out.println("Lancero 1 con salud restante: " + lancero1.getSalud());
+
+	}
+
+	@Test
+	public void testDeAtaqueSoldadoCaballero() {
+		soldado1.atacar(caballero1);
+
+		Assert.assertEquals(190, caballero1.getSalud(), 0);
+		System.out.println("Caballero 1 con salud restante: " + caballero1.getSalud());
+
 	}
 	
+//	@Test
+//	public void testDeAtaqueArqueroSoldado() {
+//		arquero1.atacar(soldado1);
+//
+//		Assert.assertEquals(195, soldado1.getSalud(), 0);
+//		System.out.println("Soldado 1 con salud restante: " + soldado1.getSalud());
+//
+//	}
+//	@Test
+//	public void testDeAtaqueLanceroSoldado() {
+//		lancero1.atacar(caballero1);
+//
+//		Assert.assertEquals(175, caballero1.getSalud(), 0);
+//		System.out.println("Soldado 1 con salud restante: " + caballero1.getSalud());
+//
+//	}
 	@Test
+	public void testDeAtaqueCaballeroSoldado() {
+		caballero1.atacar(soldado2);
+		
+		Assert.assertEquals(150, soldado2.getSalud(), 0);
+		System.out.println("Soldado 1 con salud restatne: "+ soldado2.getSalud());
+	}
 }
