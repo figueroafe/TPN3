@@ -30,21 +30,21 @@ public class UnidadesConItemTest {
 
 	@Test
 	public void testUnidad() {
-		
+
 		ItemInterfaz soldadoEscudo = new Soldado(distancia);
 		soldadoEscudo = new Escudo(soldadoEscudo);
-		
+
 		soldado1.atacar(soldado2);
 		soldado1.atacar(soldado2);
 
-		System.out.println("defensa: "+ soldadoEscudo.getDefensa());
-	//	soldado1.atacar( soldadoEscudo);
-		
+		System.out.println("defensa: " + soldadoEscudo.getDefensa());
+		// soldado1.atacar( soldadoEscudo);
+
 		soldado1.estadoUnidad();
 		System.out.println("Soldados 2");
 		soldado2.estadoUnidad();
 
-//		arquero.estadoUnidad();
+		// arquero.estadoUnidad();
 
 	}
 
