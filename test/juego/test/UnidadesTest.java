@@ -174,4 +174,4 @@ public class UnidadesTest {
 		Assert.assertEquals(150, soldado2.getSalud(), 0);
 		System.out.println("Soldado 1 con salud restatne: "+ soldado2.getSalud());
 	}
-}
+}    
