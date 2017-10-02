@@ -1,8 +1,8 @@
 package juego.items;
 
-public class Puñal extends ItemDecorator {
+public class PuÃ±al extends ItemDecorator {
 
-	public Puñal(ItemInterfaz item) {
+	public PuÃ±al(ItemInterfaz item) {
 		super(item);
 	}
 
