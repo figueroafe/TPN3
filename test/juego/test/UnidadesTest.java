@@ -35,7 +35,7 @@ public class UnidadesTest {
 
 		soldado1 = new Soldado(distancia);
 		soldado2 = new Soldado(distancia2);
-		arquero1 = new Arquero(distancia);
+		arquero1 = new Arquero(distancia2);
 		arquero2 = new Arquero(distancia);
 		lancero1 = new Lancero(distancia);
 		lancero2 = new Lancero(distancia2);
