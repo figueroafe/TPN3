@@ -33,8 +33,7 @@ public class Distancia {
 	 */
 	public double calcularDistancia(Distancia distancia) {
 
-		return Math.sqrt(Math.pow(x1 - distancia.getX1(), 2)
-				+ Math.pow(x2 - distancia.getX2(), 2));
+		return Math.sqrt(Math.pow(x1 - distancia.getX1(), 2) + Math.pow(x2 - distancia.getX2(), 2));
 	}
 
 	public double getX1() {
