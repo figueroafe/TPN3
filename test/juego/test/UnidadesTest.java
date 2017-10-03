@@ -3,6 +3,7 @@ package juego.test;
 import juego.unidades.Arquero;
 import juego.unidades.Distancia;
 import juego.unidades.Lancero;
+import juego.unidades.Pocion;
 import juego.unidades.Soldado;
 import juego.unidades.Caballero;
 import juego.unidades.UnidadTemplate;
@@ -35,8 +36,8 @@ public class UnidadesTest {
 
 		soldado1 = new Soldado(distancia);
 		soldado2 = new Soldado(distancia2);
-		arquero1 = new Arquero(distancia);
-		arquero2 = new Arquero(distancia2);
+		arquero1 = new Arquero(new Distancia(4, 1));
+		arquero2 = new Arquero(new Distancia(4, 1));
 		lancero1 = new Lancero(distancia);
 		lancero2 = new Lancero(distancia2);
 		caballero1 = new Caballero(distancia);
@@ -76,6 +77,7 @@ public class UnidadesTest {
 		Assert.assertEquals(50, caballero1.getAtaque(), 0);
 	}
 	
+	
 	/**
 	 * Testeo de los ataques entre las mismas unidades
 	 */
@@ -96,6 +98,24 @@ public class UnidadesTest {
 							+ soldado2.getEnergia());
 		System.out.println("Ataques del soldado uno 1 existos:"+ cantAtaque);
 	}
+	
+	@Test
+	public void testDeAtaqueEntreSoldadosYPocionDeAgua() {
+		int cantAtaque = 0;
+		while(soldado1.getEnergia() != 0) {
+			soldado1.atacar(soldado2);
+			cantAtaque++;
+		}
+			
+		Assert.assertEquals(0, soldado1.getEnergia(), 0);
+		Assert.assertEquals(100, soldado2.getSalud(), 0);
+		
+		soldado1.pocionAgua();
+		
+		Assert.assertEquals(100, soldado1.getEnergia(), 0);
+
+	}
+	
 	
 	@Test 
 	public void testDeAtaqueEntreArqueros() {

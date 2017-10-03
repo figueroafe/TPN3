@@ -1,25 +1,59 @@
 package juego.items;
 
+import juego.unidades.UnidadTemplate;
+
 public class Puñal extends ItemDecorator {
 
-	public Puñal(ItemInterfaz item) {
-		super(item);
+	/**
+	 * Constantes de aumento de ataque y reduccion de defensa
+	 */
+	protected static final double DEFENSA = 3;
+	protected static final double ATAQUE = 3;
+
+	/**
+	 * Constructor de la clase
+	 * 
+	 * @param unidad
+	 */
+	public Puñal(UnidadTemplate unidad) {
+		super(unidad);
 	}
 
-	@Override
-	public double getEnergia() {
-		return this.getItemInterfaz().getEnergia();
-	}
-
-	@Override
+	/**
+	 * Sobreescritura del metodo que reduce la defensa en 3
+	 */
 	public double getDefensa() {
-		return this.getItemInterfaz().getDefensa() - 3;
+//		getUnidad().setDefensa(getUnidad().getDefensa() - DEFENSA);
+		return getUnidad().getDefensa() - DEFENSA ;
+	}
+
+	/**
+	 * Sobreescritura del metodo que aumenta el ataque en 3
+	 */
+	public double getAtaque() {
+//		getUnidad().setAtaque(getUnidad().getAtaque() + ATAQUE);
+		return getUnidad().getAtaque() + ATAQUE;
+	}
+
+	
+	/** Sobre carga de metodos de la clase UnidadTemplate
+	 * 
+	 */
+	@Override
+	public boolean atacar(UnidadTemplate enemigo) {
+		return this.getUnidad().atacar(enemigo);
+	}
+
+	@Override
+	public void estadoUnidad() {
+		this.getUnidad().estadoUnidad();
 
 	}
 
 	@Override
-	public double getAtaque() {
-		return this.getItemInterfaz().getAtaque() - 3;
+	public void pocionAgua() {
+		this.getUnidad().pocionAgua();
+		
 	}
 
 }

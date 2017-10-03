@@ -74,12 +74,13 @@ public class Arquero extends UnidadTemplate {
 			this.flechas--;
 			enemigo.setSalud((int) ((enemigo.getSalud() - this.getAtaque()) + enemigo
 					.getDefensa()));
-			System.out.println("El Arquero ataco al "+enemigo.getClass().toString());
+			System.out.println("El Arquero ataco al "
+					+ enemigo.getClass().toString());
 			return true;
 		}
-		if(this.flechas <=0 )
+		if (this.flechas <= 0)
 			System.out.println("Ya no posee flechas para atacar");
-		if (distanciaDeAtaque(enemigo)==false)
+		if (distanciaDeAtaque(enemigo) == false)
 			System.out.println("No esta en rango para atacar.");
 		return false;
 	}
@@ -102,9 +103,14 @@ public class Arquero extends UnidadTemplate {
 		this.flechas = flechas;
 	}
 
-	@Override
 	public double getEnergia() {
 		return 0;
+	}
+
+	@Override
+	public void pocionAgua() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

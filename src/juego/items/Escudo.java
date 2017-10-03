@@ -1,24 +1,45 @@
 package juego.items;
 
+import juego.unidades.UnidadTemplate;
+
 public class Escudo extends ItemDecorator {
 
-	public Escudo(ItemInterfaz item) {
-		super(item);
+	/**
+	 * Constantes de aumento de la defensa en un 60 % (reduccion de ataque en
+	 * 40%)
+	 */
+	protected static final double DEFENSA = 0.60;
+
+	public Escudo(UnidadTemplate unidad) {
+		super(unidad);
 	}
 
-	@Override
-	public double getEnergia() {
-		return this.getItemInterfaz().getEnergia();
-	}
-
-	@Override
+	/**
+	 * Sobreescritura del metodo que aumenta la defensa
+	 */
 	public double getDefensa() {
-		return this.getItemInterfaz().getDefensa() + 0.60;
+//		getUnidad().setDefensa(getUnidad().getDefensa() + DEFENSA);
+		return getUnidad().getDefensa() + DEFENSA ;
+	}
+
+	/**
+	 * Sobrecarga de los metodos de la clase UnidadTemplate
+	 */
+	@Override
+	public boolean atacar(UnidadTemplate enemigo) {
+		return this.getUnidad().atacar(enemigo);
 	}
 
 	@Override
-	public double getAtaque() {
-		return this.getItemInterfaz().getAtaque();
+	public void estadoUnidad() {
+		this.getUnidad().estadoUnidad();
+
 	}
+	@Override
+	public void pocionAgua() {
+		this.getUnidad().pocionAgua();
+		
+	}
+
 
 }

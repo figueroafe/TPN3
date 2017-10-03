@@ -4,12 +4,7 @@ import java.util.ArrayList;
 
 import juego.items.ItemDecorator;
 
-public class Soldado extends UnidadTemplate implements Pocion {
-
-	/**
-	 * Atributo particular de la clase soldado
-	 */
-	private double energia;
+public class Soldado extends UnidadTemplate  implements Pocion {
 
 	/**
 	 * Valores iniciales de los soldados
@@ -50,7 +45,7 @@ public class Soldado extends UnidadTemplate implements Pocion {
 		System.out.println(" --- Estado Soldado ---");
 		System.out.println("Energia   --> " + this.getEnergia());
 		System.out.println("Salud     --> " + this.getSalud());
-		System.out.println("Defensa   --> " + this.getDefensa());
+		System.out.println("Defensa   --> " + this.defensa);
 		System.out.println("Ataque    --> " + this.getAtaque());
 
 		if (this.getListaItem().size() > 0) {
@@ -70,39 +65,28 @@ public class Soldado extends UnidadTemplate implements Pocion {
 	 */
 	@Override
 	public void pocionAgua() {
-		this.energia = ENERGIA_SOLDADO;
+		this.setEnergia(ENERGIA_SOLDADO);
 	}
-
+	
 	/**
 	 * Sobreescribo el metodo atacar segun la forma de combate del soldado
 	 */
 	@Override
 	public boolean atacar(UnidadTemplate enemigo) {
-		if (this.energia > 0 && distanciaDeAtaque(enemigo)) {
-			this.energia -= ATAQUE_SOLDADO;
+		if (this.getEnergia() > 0 && distanciaDeAtaque(enemigo)) {
+			this.setEnergia(this.getEnergia() - ATAQUE_SOLDADO);
 			enemigo.setSalud((int) ((enemigo.getSalud() - this.getAtaque()) + enemigo
 					.getDefensa()));
 			System.out.println("El Soldado ataco al "
 					+ enemigo.getClass().getName());
 			return true;
 		}
-		if (this.energia <= 0)
+		if (this.getEnergia() <= 0)
 			System.out.println("Ya no posee energia suficiente para atacar.");
 		if (distanciaDeAtaque(enemigo)==false)
 			System.out.println("No esta en rango para atacar.");
 
 		return false;
-	}
-
-	/**
-	 * Getters y Setterd s
-	 */
-	public double getEnergia() {
-		return energia;
-	}
-
-	public void setEnergia(double energia) {
-		this.energia = energia;
 	}
 
 }

@@ -1,35 +1,44 @@
 package juego.items;
 
-import juego.unidades.Distancia;
 import juego.unidades.UnidadTemplate;
 
-public abstract class ItemDecorator implements ItemInterfaz{
+public abstract class ItemDecorator extends UnidadTemplate {
 
-	private ItemInterfaz itemInterfaz;
-	protected String nombreItem;
-	
-	public ItemDecorator(ItemInterfaz item) {
-		this.setItemInterfaz(item);
+	private UnidadTemplate unidad;
+
+	public ItemDecorator(UnidadTemplate unidad) {
+		super(unidad.getDistancia());
+		this.unidad = unidad;
 	}
 
-	public String getNombreItem() {
-		return nombreItem;
+	public UnidadTemplate getUnidad() {
+		return unidad;
 	}
 
-	public void setNombreItem(String nombreItem) {
-		this.nombreItem = nombreItem;
+	public void setUnidad(UnidadTemplate unidad) {
+		this.unidad = unidad;
 	}
 
-	public ItemInterfaz getItemInterfaz() {
-		return itemInterfaz;
+	/**
+	 * getters de los atributos a decorar en cada subclase segun el item que
+	 * lleven
+	 * 
+	 */
+
+	public double getDefensa() {
+		return getUnidad().getDefensa();
 	}
 
-	public void setItemInterfaz(ItemInterfaz itemInterfaz) {
-		this.itemInterfaz = itemInterfaz;
+	public double getSalud() {
+		return getUnidad().getSalud();
 	}
 
-	
+	public double getAtaque() {
+		return getUnidad().getAtaque();
+	}
 
-
+	public double getEnergia() {
+		return getUnidad().getEnergia();
+	}
 
 }

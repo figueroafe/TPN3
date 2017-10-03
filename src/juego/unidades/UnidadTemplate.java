@@ -6,15 +6,16 @@ import sun.security.jca.GetInstance;
 import juego.items.ItemDecorator;
 import juego.items.ItemInterfaz;
 
-public abstract class UnidadTemplate implements ItemInterfaz{
+public abstract class UnidadTemplate {
 
 	/**
 	 * atributos que tienen en comun cada unidad
 	 */
 	protected ArrayList<ItemDecorator> listaItem;
-	protected int defensa;
+	protected double energia;
+	protected double defensa;
 	protected int salud;
-	protected int ataque;
+	protected double ataque;
 	protected Distancia distancia;
 	protected double distanciaMin;
 	protected double distanciaMax;
@@ -55,25 +56,11 @@ public abstract class UnidadTemplate implements ItemInterfaz{
 		double distancia = this.distancia.calcularDistancia(enemigo.distancia);
 		return distancia >= distanciaMin && distancia <= distanciaMax;
 	}
-
-	/**
-	 * se encanrga de aplicar un item a la unidad
+	
+	/**metodo de la interfaz a desarrollar en la clase soldado y caballero
 	 * 
-	 * @param item
-	 * @return
 	 */
-	protected boolean aplicarItem(ItemDecorator item) {
-		if (this.listaItem.size() < 3) {
-			listaItem.add(item);
-		//	item.equipar();
-			System.out.println("Se equipo con " + item.getNombreItem());
-			return true;
-		}
-
-		return false;
-
-	}
-
+	public abstract void pocionAgua();
 	/**
 	 * Getters y Setters
 	 * 
@@ -90,8 +77,8 @@ public abstract class UnidadTemplate implements ItemInterfaz{
 		return defensa;
 	}
 
-	public void setDefensa(int defensa) {
-		this.defensa = defensa;
+	public void setDefensa(double d) {
+		this.defensa = d;
 	}
 
 	public double getSalud() {
@@ -106,8 +93,8 @@ public abstract class UnidadTemplate implements ItemInterfaz{
 		return ataque;
 	}
 
-	public void setAtaque(int ataque) {
-		this.ataque = ataque;
+	public void setAtaque(double d) {
+		this.ataque = d;
 	}
 
 	public Distancia getDistancia() {
@@ -116,6 +103,14 @@ public abstract class UnidadTemplate implements ItemInterfaz{
 
 	public void setDistancia(Distancia distancia) {
 		this.distancia = distancia;
+	}
+
+	public double getEnergia() {
+		return energia;
+	}
+
+	public void setEnergia(double energia) {
+		this.energia = energia;
 	}
 
 }

@@ -70,9 +70,13 @@ public class Lancero extends UnidadTemplate{
 		return false;
 	}
 
-	@Override
 	public double getEnergia() {
 		return 0;
+	}
+
+	@Override
+	public void pocionAgua() {
+		
 	}
 	
 }

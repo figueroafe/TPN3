@@ -123,7 +123,6 @@ public class Caballero extends UnidadTemplate implements Pocion {
 		this.ataquesRecibidos = ataquesRecibidos;
 	}
 
-	@Override
 	public double getEnergia() {
 		return 0;
 	}
