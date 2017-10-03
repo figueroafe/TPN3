@@ -3,7 +3,7 @@ package juego.test;
 import juego.items.Capa;
 import juego.items.Escudo;
 import juego.items.ItemInterfaz;
-import juego.items.Puñal;
+import juego.items.Punial;
 import juego.unidades.Arquero;
 import juego.unidades.Caballero;
 import juego.unidades.Distancia;
@@ -71,9 +71,9 @@ public class UnidadesConItemTest {
 	}
 
 	@Test
-	public void testUnidadConPuñal() {
+	public void testUnidadConPunial() {
 
-		soldado1 = new Puñal(soldado1);
+		soldado1 = new Punial(soldado1);
 		
 		Assert.assertEquals(13, soldado1.getAtaque(), 0.111);
 		Assert.assertEquals(-3, soldado1.getDefensa(), 0);
@@ -94,10 +94,10 @@ public class UnidadesConItemTest {
 	}
 
 	@Test
-	public void testUnidadConEscudoMasPuñal() {
+	public void testUnidadConEscudoMasPunial() {
 
 		soldado1 = new Escudo(soldado1);
-		soldado1 = new Puñal(soldado1);
+		soldado1 = new Punial(soldado1);
 				
 		Assert.assertEquals(13, soldado1.getAtaque(), 0.111);
 		Assert.assertEquals(-2.4, soldado1.getDefensa(), 0);
@@ -106,10 +106,10 @@ public class UnidadesConItemTest {
 	}
 
 	@Test
-	public void testUnidadConCapaMasPuñal() {
+	public void testUnidadConCapaMasPunial() {
 
 		soldado1 = new Capa(soldado1);
-		soldado1 = new Puñal(soldado1);
+		soldado1 = new Punial(soldado1);
 		
 		
 		Assert.assertEquals(12.09, soldado1.getAtaque(), 0.111);
@@ -119,10 +119,10 @@ public class UnidadesConItemTest {
 	}
 
 	@Test
-	public void testUnidadConEscudoMasPuñalMasCapa() {
+	public void testUnidadConEscudoMasPunialMasCapa() {
 
 		soldado1 = new Escudo(soldado1);
-		soldado1 = new Puñal(soldado1);
+		soldado1 = new Punial(soldado1);
 		soldado1 = new Capa(soldado1);
 				
 		Assert.assertEquals(11.81, soldado1.getAtaque(), 0.111);
@@ -132,10 +132,10 @@ public class UnidadesConItemTest {
 	}
 
 	@Test
-	public void testAtacarUnidadConEscudoMasPuñalMasCapa() {
+	public void testAtacarUnidadConEscudoMasPunialMasCapa() {
 
 		soldado1 = new Escudo(soldado1);
-		soldado1 = new Puñal(soldado1);
+		soldado1 = new Punial(soldado1);
 		soldado1 = new Capa(soldado1);
 		
 		soldado1.atacar(soldado2);
@@ -147,10 +147,10 @@ public class UnidadesConItemTest {
 	}
 
 	@Test
-	public void testAtacarUnidadConEscudoMasPuñal() {
+	public void testAtacarUnidadConEscudoMasPunial() {
 
 		soldado1 = new Escudo(soldado1);
-		soldado1 = new Puñal(soldado1);
+		soldado1 = new Punial(soldado1);
 		
 		soldado1.atacar(soldado2);
 		

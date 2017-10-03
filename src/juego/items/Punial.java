@@ -2,7 +2,7 @@ package juego.items;
 
 import juego.unidades.UnidadTemplate;
 
-public class Puñal extends ItemDecorator {
+public class Punial extends ItemDecorator {
 
 	/**
 	 * Constantes de aumento de ataque y reduccion de defensa
@@ -15,7 +15,7 @@ public class Puñal extends ItemDecorator {
 	 * 
 	 * @param unidad
 	 */
-	public Puñal(UnidadTemplate unidad) {
+	public Punial(UnidadTemplate unidad) {
 		super(unidad);
 	}
 

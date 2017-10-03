@@ -59,7 +59,7 @@ public class UnidadesTest {
 	@Test
 	public void testDeEstadoInicialArquero() {
 		Assert.assertEquals(50, arquero1.getSalud(), 0);
-		// Assert.assertEquals(20, arquero1.getFlechas(), 0);
+		Assert.assertEquals(20, ((Arquero) arquero1).getFlechas(), 0);
 		Assert.assertEquals(5, arquero1.getAtaque(), 0);
 
 	}
