@@ -70,61 +70,59 @@ public class UnidadesTest {
 		Assert.assertEquals(25, lancero1.getAtaque(), 0);
 
 	}
-	
+
 	@Test
 	public void testDeEstadoInicialCaballero() {
 		Assert.assertEquals(200, caballero1.getSalud(), 0);
 		Assert.assertEquals(50, caballero1.getAtaque(), 0);
 	}
-	
-	
+
 	/**
 	 * Testeo de los ataques entre las mismas unidades
 	 */
-	
+
 	@Test
 	public void testDeAtaqueEntreSoldados() {
 		int cantAtaque = 0;
-		while(soldado1.getEnergia() != 0) {
+		while (soldado1.getEnergia() != 0) {
 			soldado1.atacar(soldado2);
 			cantAtaque++;
 		}
-			
+
 		Assert.assertEquals(0, soldado1.getEnergia(), 0);
 		Assert.assertEquals(100, soldado2.getSalud(), 0);
 		Assert.assertEquals(10, cantAtaque);
-		System.out.println("Soldado 1 sin energia:"+ soldado1.getEnergia());
-		System.out.println("Soldado 2 con saludo luego del ataque:"
-							+ soldado2.getEnergia());
-		System.out.println("Ataques del soldado uno 1 existos:"+ cantAtaque);
+		System.out.println("Soldado 1 sin energia:" + soldado1.getEnergia());
+		System.out.println("Soldado 2 con saludo luego del ataque:" + soldado2.getEnergia());
+		System.out.println("Ataques del soldado uno 1 existos:" + cantAtaque);
 	}
-	
+
 	@Test
 	public void testDeAtaqueEntreSoldadosYPocionDeAgua() {
 		int cantAtaque = 0;
-		while(soldado1.getEnergia() != 0) {
+		while (soldado1.getEnergia() != 0) {
 			soldado1.atacar(soldado2);
 			cantAtaque++;
 		}
-			
+
 		Assert.assertEquals(0, soldado1.getEnergia(), 0);
 		Assert.assertEquals(100, soldado2.getSalud(), 0);
-		
+
 		soldado1.pocionAgua();
-		
+
 		Assert.assertEquals(100, soldado1.getEnergia(), 0);
 
 	}
-	
-	
-	@Test 
+
+	@Test
 	public void testDeAtaqueEntreArqueros() {
 		int flechas = 0;
-		while(((Arquero) arquero1).getFlechas() > 0) {
+		while (((Arquero) arquero1).getFlechas() > 0) {
 			arquero1.atacar(arquero2);
 			flechas++;
 		}
-		
+
 		Assert.assertEquals(0, arquero1.getEnergia(), 0);
 	}
+
 }
