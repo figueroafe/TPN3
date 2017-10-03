@@ -11,7 +11,7 @@ public class Arquero extends UnidadTemplate {
 	 */
 	private int flechas;
 
-	/**
+	/**    
 	 * Valores iniciales de los arqueros
 	 * 
 	 * tomamomos como defensa inicial 0
